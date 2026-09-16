@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dashboard - History by Immersion</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#44474a",
+                        "surface-variant": "#e5e2e1",
+                        "surface-dim": "#ddd9d9",
+                        "on-tertiary-fixed": "#201b17",
+                        "on-surface": "#1c1b1b",
+                        "primary-fixed-dim": "#c6c6c9",
+                        "on-tertiary": "#ffffff",
+                        "border-subtle": "rgba(26, 28, 30, 0.08)",
+                        "secondary": "#715a3e",
+                        "on-primary-fixed-variant": "#454749",
+                        "tertiary-container": "#201b17",
+                        "outline": "#75777a",
+                        "tertiary-fixed": "#ebe0da",
+                        "surface-bright": "#fcf8f8",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#fdddb9",
+                        "on-tertiary-fixed-variant": "#4c4641",
+                        "parchment-surface": "#F1EFE9",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#8b837d",
+                        "gold-accent": "#D4AF37",
+                        "secondary-fixed-dim": "#e0c29f",
+                        "inverse-surface": "#313030",
+                        "inverse-on-surface": "#f4f0ef",
+                        "surface-container": "#f1eded",
+                        "tertiary-fixed-dim": "#cfc5be",
+                        "surface": "#fcf8f8",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#ebe7e7",
+                        "on-background": "#1c1b1b",
+                        "slate-deep": "#2C2E31",
+                        "primary": "#000101",
+                        "crimson-accent": "#9E2A2B",
+                        "on-secondary-container": "#786044",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#e2e2e5",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#1a1c1e",
+                        "on-secondary-fixed-variant": "#584329",
+                        "outline-variant": "#c5c6ca",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-container": "#fdddb9",
+                        "primary-container": "#1a1c1e",
+                        "parchment-base": "#F9F8F4",
+                        "background": "#fcf8f8",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#c6c6c9",
+                        "on-primary-container": "#838486",
+                        "on-secondary-fixed": "#281803",
+                        "tertiary": "#010100",
+                        "surface-tint": "#5d5e61",
+                        "cobalt-accent": "#2B50AA"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "stack-lg": "32px",
+                        "stack-sm": "8px",
+                        "section-padding": "64px",
+                        "container-max-width": "1100px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Source Serif 4"],
+                        "display-lg": ["Source Serif 4"],
+                        "ui-label-md": ["Inter"],
+                        "headline-md": ["Source Serif 4"],
+                        "body-lg": ["Source Serif 4"],
+                        "body-md": ["Source Serif 4"],
+                        "ui-label-sm": ["Inter"],
+                        "ui-label-bold": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "ui-label-md": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "body-lg": ["20px", { "lineHeight": "32px", "fontWeight": "400" }],
+                        "body-md": ["17px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "ui-label-sm": ["11px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "ui-label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-parchment-base text-on-surface antialiased min-h-screen flex selection:bg-cobalt-accent selection:text-white">
+<!-- SideNavBar -->
+<nav class="h-screen w-64 fixed left-0 top-0 bg-parchment-base border-r border-subtle flex flex-col py-stack-lg px-gutter z-50">
+<div class="mb-stack-lg">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Chronos Archive</h1>
+<p class="font-ui-label-sm text-ui-label-sm text-on-surface-variant mt-unit uppercase tracking-widest">History by Immersion</p>
+</div>
+<ul class="flex flex-col gap-unit flex-1">
+<li>
+<a class="flex items-center gap-stack-sm py-2 px-3 text-primary border-r-2 border-primary font-bold bg-parchment-surface transition-colors hover:bg-parchment-surface group" href="#">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-ui-label-bold text-ui-label-bold">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-stack-sm py-2 px-3 text-on-surface-variant transition-colors hover:bg-parchment-surface hover:text-primary group" href="#">
+<span class="material-symbols-outlined">person_book</span>
+<span class="font-ui-label-bold text-ui-label-bold">Learner Profile</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-stack-sm py-2 px-3 text-on-surface-variant transition-colors hover:bg-parchment-surface hover:text-primary group" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="font-ui-label-bold text-ui-label-bold">Archives</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto pt-stack-lg border-t border-subtle">
+<button class="w-full bg-primary text-on-primary font-ui-label-bold text-ui-label-bold py-3 rounded flex justify-center items-center gap-2 hover:bg-slate-deep transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                New Analysis
+            </button>
+<div class="flex items-center gap-3 mt-stack-md pt-stack-sm">
+<img alt="Curator Profile" class="w-8 h-8 rounded-full border border-subtle object-cover" data-alt="A small circular profile portrait of a distinguished older man with gray hair and glasses, looking thoughtful, set against a neutral, light-washed background. The lighting is soft and natural, emphasizing a scholarly, intellectual persona suitable for a historical archivist in a clean, modern UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMjTlbJnHaMRj-qBgJvzT9rw-GxTCkQTEClaH3oX652lLq55NmlZfB2wJ9jAkIVBZgfctQhRycRYK1JFJfJCqTnlOlc_cvoHJuRrOOuMn-Hp8rcoXT4QqPYYf7V1L5vL9upSgjK0moy586zstkmRgKE4HU4_M6saJ7a0QGRUt_Znd9leQpJEuk679AXYTt5UtAzFHFnV_pmM8A3VZnSQeNE7Q7AkXixvqG4eiAj4ByJ3jJq1YiGIXdW1iPT1K2tWG39xcHkv5NjQM"/>
+<div class="flex flex-col">
+<span class="font-ui-label-md text-ui-label-md text-primary font-semibold">Dr. A. Vance</span>
+<span class="font-ui-label-sm text-ui-label-sm text-on-surface-variant">Curator</span>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 ml-64 flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-parchment-base/90 backdrop-blur-md border-b border-subtle flex justify-between items-center h-16 px-gutter transition-all duration-300" id="top-nav">
+<div class="flex items-center flex-1">
+<div class="relative w-full max-w-md hidden md:flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full bg-parchment-surface border-none rounded py-2 pl-10 pr-4 font-ui-label-md text-ui-label-md text-primary placeholder:text-outline focus:ring-1 focus:ring-primary focus:bg-white transition-all" placeholder="Search epochs, figures, or junction points..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded hover:bg-parchment-surface focus:outline-none focus:ring-1 focus:ring-primary">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded hover:bg-parchment-surface focus:outline-none focus:ring-1 focus:ring-primary">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 pt-24 pb-section-padding px-gutter md:px-stack-lg max-w-container-max-width mx-auto w-full">
+<div class="flex flex-col md:flex-row justify-between items-end mb-stack-lg border-b border-subtle pb-stack-sm">
+<div>
+<h2 class="font-display-lg text-display-lg text-primary tracking-tight">Active Junctions</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 max-w-2xl">Select a historical pivot point to begin your analysis. Your decisions will be evaluated against probabilistic outcomes based on primary source data.</p>
+</div>
+<div class="flex gap-2 mt-4 md:mt-0">
+<button class="px-3 py-1.5 border border-primary text-primary font-ui-label-md text-ui-label-md rounded hover:bg-primary hover:text-on-primary transition-colors">Filters</button>
+<button class="px-3 py-1.5 border border-subtle text-on-surface-variant font-ui-label-md text-ui-label-md rounded hover:bg-parchment-surface transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">sort</span> Sort
+                    </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Main Grid -->
+<div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<!-- Scenario Card 1 -->
+<article class="group bg-parchment-surface border border-subtle rounded-lg overflow-hidden hover:shadow-[0_12px_24px_rgba(0,0,0,0.04)] transition-all duration-300 flex flex-col h-full cursor-pointer relative">
+<div class="h-48 w-full overflow-hidden relative border-b border-subtle">
+<img alt="Berlin Wall" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 scale-100 group-hover:scale-105" data-alt="A gritty, historical black-and-white photograph of the Berlin Wall during its fall, showing a concrete barrier covered in graffiti. The scene is tense but hopeful, lit by harsh documentary-style lighting. The image sits within a minimalist, parchment-toned UI, looking like a high-quality archival print." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZnq-xyk8B72_T0ccwIUwcWmlQRk62PpryqpwWRb8amRW8NTAsU5prg8eYxeXFrDBwbjxWkbLGOoeM8Ij0R-XEtf9iMrM8D6mKlxK6D5w7JPrLQmuenmmd3fYlP5XGuO53xvi_JILs7CypNUbf-z2rWRd05zvRqVgMClAjzcCE81ynf4HQxLBCiw_u7Uo2MJYVcAmufZieS-Swd8WMOBI45MGgC95jw2ki6e6JtGgNTYQ5L9mG3BSava31ClSNSnzRP9kLB7yHP0k"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-white/90 backdrop-blur-sm border border-subtle text-primary font-ui-label-sm text-ui-label-sm px-2 py-0.5 rounded shadow-sm">1989</span>
+<span class="bg-crimson-accent/90 backdrop-blur-sm text-white font-ui-label-sm text-ui-label-sm px-2 py-0.5 rounded shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">warning</span> High Volatility
+                                </span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2 group-hover:text-cobalt-accent transition-colors">The Fall of the Berlin Wall</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4 flex-1">Analyze the geopolitical pressures and localized miscommunications that led to the sudden opening of the border.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2 py-1 bg-parchment-base border border-subtle text-secondary font-ui-label-sm text-ui-label-sm rounded">Geopolitics</span>
+<span class="px-2 py-1 bg-parchment-base border border-subtle text-secondary font-ui-label-sm text-ui-label-sm rounded">Cold War</span>
+<span class="px-2 py-1 bg-parchment-base border border-subtle text-secondary font-ui-label-sm text-ui-label-sm rounded">Mass Movement</span>
+</div>
+<div class="flex justify-between items-center border-t border-subtle pt-4 mt-auto">
+<div class="flex items-center gap-1 text-on-tertiary-container font-ui-label-sm text-ui-label-sm">
+<span class="material-symbols-outlined text-[16px]">schedule</span> 45 Min Est.
+                                </div>
+<span class="text-primary font-ui-label-bold text-ui-label-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                    Enter Junction <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</span>
+</div>
+</div>
+</article>
+<!-- Scenario Card 2 -->
+<article class="group bg-parchment-surface border border-subtle rounded-lg overflow-hidden hover:shadow-[0_12px_24px_rgba(0,0,0,0.04)] transition-all duration-300 flex flex-col h-full cursor-pointer">
+<div class="h-48 w-full overflow-hidden relative border-b border-subtle">
+<img alt="Cuban Missile Crisis" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 scale-100 group-hover:scale-105" data-alt="An aerial reconnaissance photograph, high contrast and slightly grainy, showing military installations or missile silos in a tropical landscape. The stark black and white imagery evokes Cold War tension and espionage. The composition is rigorous and analytical, fitting perfectly within a clean, scholarly digital archive interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGFXzG3UwPi6nR7D71-hSUKV720uq84WH3FXnyIWYmfmxz_oPHeKWTULAt9TbvaeAdjgUDOhEb8pGpQiYIGsJHGL3oBKrT3YDru8IKBQrsNraGM639TdMiM3e6ufILcKxS5wVlCkpjoYV9eTSTYlx7hACKx7eVOMe0jbsKYXpZSri-c0631d_VUZXcirhjXdEXed0n1ayOpl2Goz9jkd-dGDI4FElTGtw1BWnzfzqubvsX7EJWEuQfqIMiHVf_9im7EDAQiz1xuH0"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-white/90 backdrop-blur-sm border border-subtle text-primary font-ui-label-sm text-ui-label-sm px-2 py-0.5 rounded shadow-sm">1962</span>
+<span class="bg-slate-deep/90 backdrop-blur-sm text-white font-ui-label-sm text-ui-label-sm px-2 py-0.5 rounded shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">psychology</span> Strategic
+                                </span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2 group-hover:text-cobalt-accent transition-colors">The Cuban Missile Crisis</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4 flex-1">Navigate the thirteen days of brinkmanship between the US and USSR. Balance diplomatic back-channels with military readiness.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2 py-1 bg-parchment-base border border-subtle text-secondary font-ui-label-sm text-ui-label-sm rounded">Diplomacy</span>
+<span class="px-2 py-1 bg-parchment-base border border-subtle text-secondary font-ui-label-sm text-ui-label-sm rounded">Nuclear Brinkmanship</span>
+</div>
+<div class="flex justify-between items-center border-t border-subtle pt-4 mt-auto">
+<div class="flex items-center gap-1 text-on-tertiary-container font-ui-label-sm text-ui-label-sm">
+<span class="material-symbols-outlined text-[16px]">schedule</span> 60 Min Est.
+                                </div>
+<span class="text-primary font-ui-label-bold text-ui-label-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                    Enter Junction <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</span>
+</div>
+</div>
+</article>
+<!-- Scenario Card 3 -->
+<article class="group bg-parchment-surface border border-subtle rounded-lg overflow-hidden hover:shadow-[0_12px_24px_rgba(0,0,0,0.04)] transition-all duration-300 flex flex-col h-full cursor-pointer">
+<div class="h-48 w-full overflow-hidden relative border-b border-subtle">
+<img alt="Treaty of Versailles" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 scale-100 group-hover:scale-105" data-alt="A grand, historic European hall with ornate architecture, seen in sepia tones, evoking the signing of a major treaty. Long shadows fall across grand tables. The atmosphere is heavy with consequence and formal diplomacy, presented as a crisp, high-resolution archival document within a minimalist, parchment-colored web environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALIBVCPGwgYpqEFZUPGPmO7gxCKqsT3GDYAwx36oIuIHwi6zFPXvW6u2XkCyfungEVFceQNvPjYvCERDy4hIoYhBbNvradqSaZ3MojwQW7UIbyNPVZsqrQZFg2d63CFYd1ShW6FMGIlyY1F7MlGMNCrN_Rvx8-9EVbMyOr2TAMOhsBSd89wm7GIieIabd1DWt3zUzSGdJ7hKXxi420SqBR8kQEBcbW4prqFwdjrqgPvPiaCQFesZFdGxZUWt1o4MHBNzD3SUjWE0s"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-white/90 backdrop-blur-sm border border-subtle text-primary font-ui-label-sm text-ui-label-sm px-2 py-0.5 rounded shadow-sm">1919</span>
+<span class="bg-secondary/90 backdrop-blur-sm text-white font-ui-label-sm text-ui-label-sm px-2 py-0.5 rounded shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">balance</span> Complex Negotiation
+                                </span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2 group-hover:text-cobalt-accent transition-colors">Treaty of Versailles</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4 flex-1">Draft the terms of peace. Reconcile the competing demands for retribution, security, and long-term European stability.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2 py-1 bg-parchment-base border border-subtle text-secondary font-ui-label-sm text-ui-label-sm rounded">Economics</span>
+<span class="px-2 py-1 bg-parchment-base border border-subtle text-secondary font-ui-label-sm text-ui-label-sm rounded">Post-War</span>
+</div>
+<div class="flex justify-between items-center border-t border-subtle pt-4 mt-auto">
+<div class="flex items-center gap-1 text-on-tertiary-container font-ui-label-sm text-ui-label-sm">
+<span class="material-symbols-outlined text-[16px]">schedule</span> 90 Min Est.
+                                </div>
+<span class="text-primary font-ui-label-bold text-ui-label-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                    Enter Junction <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</span>
+</div>
+</div>
+</article>
+<!-- Scenario Card 4 (Locked/Upcoming) -->
+<article class="bg-parchment-base border border-subtle border-dashed rounded-lg overflow-hidden flex flex-col h-full relative opacity-70">
+<div class="absolute inset-0 bg-parchment-surface/50 backdrop-blur-[2px] z-10 flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-[32px] text-on-surface-variant mb-2">lock</span>
+<span class="font-ui-label-bold text-ui-label-bold text-primary">Requires Level 3 Clearance</span>
+</div>
+<div class="h-48 w-full bg-surface-dim border-b border-subtle flex items-center justify-center">
+<span class="material-symbols-outlined text-[48px] text-outline-variant">public</span>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">The Yalta Conference</h3>
+<div class="h-4 w-3/4 bg-surface-variant rounded mb-2"></div>
+<div class="h-4 w-1/2 bg-surface-variant rounded mb-4"></div>
+</div>
+</article>
+</div>
+<!-- Sidebar -->
+<aside class="lg:col-span-1 flex flex-col gap-6">
+<!-- Progress Card -->
+<div class="bg-parchment-surface border border-subtle rounded-lg p-5">
+<h4 class="font-ui-label-bold text-ui-label-bold text-primary uppercase tracking-widest mb-4 border-b border-subtle pb-2">Analyst Metrics</h4>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<span class="block font-ui-label-sm text-ui-label-sm text-on-surface-variant mb-1">Junctions Cleared</span>
+<span class="font-display-lg text-[32px] text-primary">12</span>
+</div>
+<div>
+<span class="block font-ui-label-sm text-ui-label-sm text-on-surface-variant mb-1">Avg. Accuracy</span>
+<span class="font-display-lg text-[32px] text-cobalt-accent">84%</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-subtle">
+<div class="flex justify-between items-center mb-1">
+<span class="font-ui-label-sm text-ui-label-sm text-primary">Probabilistic Reasoning Level</span>
+<span class="font-ui-label-sm text-ui-label-sm text-secondary">Lvl 4</span>
+</div>
+<div class="w-full h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-slate-deep w-[65%]"></div>
+</div>
+</div>
+</div>
+<!-- Recent Activity -->
+<div class="bg-parchment-base border-l-2 border-secondary pl-4 py-2 relative">
+<div class="absolute -left-[11px] top-4 w-5 h-5 bg-parchment-base border-2 border-secondary rounded-full flex items-center justify-center">
+<div class="w-2 h-2 bg-secondary rounded-full"></div>
+</div>
+<h4 class="font-ui-label-bold text-ui-label-bold text-primary mb-1">Resume Analysis</h4>
+<p class="font-headline-sm text-[18px] text-primary leading-tight mb-2">The Defenestration of Prague</p>
+<p class="font-body-md text-[14px] text-on-surface-variant mb-3">You left off during the assessment of immediate retaliatory risks.</p>
+<button class="text-cobalt-accent font-ui-label-bold text-ui-label-bold flex items-center gap-1 hover:underline">
+                            Continue <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<div class="border-l-2 border-subtle pl-4 py-2 relative opacity-60">
+<div class="absolute -left-[7px] top-4 w-3 h-3 bg-subtle rounded-full"></div>
+<h4 class="font-ui-label-sm text-ui-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Completed 2 days ago</h4>
+<p class="font-headline-sm text-[16px] text-primary leading-tight">Assassination of Archduke Franz Ferdinand</p>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-ui-label-bold text-[12px] text-secondary">Score: 92/100</span>
+<span class="w-1 h-1 bg-outline rounded-full"></span>
+<a class="font-ui-label-sm text-ui-label-sm text-on-surface-variant hover:underline" href="#">View Debrief</a>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-stack-lg border-t border-subtle bg-parchment-surface flex flex-col md:flex-row justify-between items-center py-stack-lg px-gutter">
+<div class="font-ui-label-bold text-ui-label-bold uppercase tracking-widest text-primary mb-4 md:mb-0">
+                © 2024 Chronos Archive. Intellectual Clarity through Historical Gravity.
+            </div>
+<ul class="flex flex-wrap gap-6 font-ui-label-sm text-ui-label-sm text-on-tertiary-container">
+<li><a class="hover:text-primary transition-colors focus:outline-none ring-1 ring-transparent focus:ring-primary rounded px-1" href="#">Methodology</a></li>
+<li><a class="hover:text-primary transition-colors focus:outline-none ring-1 ring-transparent focus:ring-primary rounded px-1" href="#">Source Standards</a></li>
+<li><a class="hover:text-primary transition-colors focus:outline-none ring-1 ring-transparent focus:ring-primary rounded px-1" href="#">Ethical Framework</a></li>
+<li><a class="hover:text-primary transition-colors focus:outline-none ring-1 ring-transparent focus:ring-primary rounded px-1" href="#">Contact Curator</a></li>
+</ul>
+</footer>
+</div>
+<script>
+        // Simple scroll effect for top nav shadow
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('top-nav');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-sm');
+            } else {
+                nav.classList.remove('shadow-sm');
+            }
+        });
+    </script>
+</body></html>

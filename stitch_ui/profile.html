@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Learner Profile - Chronos Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#44474a",
+                        "surface-variant": "#e5e2e1",
+                        "surface-dim": "#ddd9d9",
+                        "on-tertiary-fixed": "#201b17",
+                        "on-surface": "#1c1b1b",
+                        "primary-fixed-dim": "#c6c6c9",
+                        "on-tertiary": "#ffffff",
+                        "border-subtle": "rgba(26, 28, 30, 0.08)",
+                        "secondary": "#715a3e",
+                        "on-primary-fixed-variant": "#454749",
+                        "tertiary-container": "#201b17",
+                        "outline": "#75777a",
+                        "tertiary-fixed": "#ebe0da",
+                        "surface-bright": "#fcf8f8",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#fdddb9",
+                        "on-tertiary-fixed-variant": "#4c4641",
+                        "parchment-surface": "#F1EFE9",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#8b837d",
+                        "gold-accent": "#D4AF37",
+                        "secondary-fixed-dim": "#e0c29f",
+                        "inverse-surface": "#313030",
+                        "inverse-on-surface": "#f4f0ef",
+                        "surface-container": "#f1eded",
+                        "tertiary-fixed-dim": "#cfc5be",
+                        "surface": "#fcf8f8",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#ebe7e7",
+                        "on-background": "#1c1b1b",
+                        "slate-deep": "#2C2E31",
+                        "primary": "#000101",
+                        "crimson-accent": "#9E2A2B",
+                        "on-secondary-container": "#786044",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#e2e2e5",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#1a1c1e",
+                        "on-secondary-fixed-variant": "#584329",
+                        "outline-variant": "#c5c6ca",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-container": "#fdddb9",
+                        "primary-container": "#1a1c1e",
+                        "parchment-base": "#F9F8F4",
+                        "background": "#fcf8f8",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#c6c6c9",
+                        "on-primary-container": "#838486",
+                        "on-secondary-fixed": "#281803",
+                        "tertiary": "#010100",
+                        "surface-tint": "#5d5e61",
+                        "cobalt-accent": "#2B50AA"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "stack-lg": "32px",
+                        "stack-sm": "8px",
+                        "section-padding": "64px",
+                        "container-max-width": "1100px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Source Serif 4"],
+                        "display-lg": ["Source Serif 4"],
+                        "ui-label-md": ["Inter"],
+                        "headline-md": ["Source Serif 4"],
+                        "body-lg": ["Source Serif 4"],
+                        "body-md": ["Source Serif 4"],
+                        "ui-label-sm": ["Inter"],
+                        "ui-label-bold": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "ui-label-md": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "body-lg": ["20px", { "lineHeight": "32px", "fontWeight": "400" }],
+                        "body-md": ["17px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "ui-label-sm": ["11px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "ui-label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.parchment-base'); color: theme('colors.primary'); }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex text-primary bg-parchment-base">
+<!-- SideNavBar -->
+<nav class="bg-parchment-base dark:bg-inverse-surface h-screen w-64 fixed left-0 top-0 border-r border-subtle dark:border-outline-variant flex flex-col h-full py-stack-lg px-gutter z-50">
+<div class="mb-stack-lg">
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight">Chronos Archive</h1>
+<p class="font-ui-label-md text-ui-label-md text-on-surface-variant mt-unit">History by Immersion</p>
+</div>
+<div class="flex items-center gap-3 mb-stack-lg">
+<img alt="Curator Profile" class="w-10 h-10 rounded-full border border-subtle" data-alt="A small, professional portrait photo of a sophisticated academic or historian. The lighting is soft and natural, emphasizing intellect and focus. The background is a muted, abstract texture. The overall aesthetic fits a minimalist, high-end digital archiving tool." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxt7wP9G5gmfq7wggmXyZlbY46RmMXde-EdhAZJacbLe7TiZovCVJbT7phHGv7pHpQWCk7dPIRYjJebqZD7XYGzy2TvBST9MZOdlR4PKIzelYrvXfun92UYGmgcckFmbd7gfik_XlspH2RD4V3j7kmVZE1rixDFqqr3pXh3y64LnzRFi0XeZbCgZOQOb_SUW6nAE01LZMDeN-uUacWwBpiYMEX74bS9vw8olf4gh3viRFBjG_kTm0KuyWAn5hYIBJqBHMpXTtbN00"/>
+<div>
+<p class="font-ui-label-bold text-ui-label-bold">Curator</p>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary font-ui-label-bold text-ui-label-bold py-2 rounded mb-stack-lg hover:bg-slate-deep transition-colors">
+            New Analysis
+        </button>
+<ul class="flex-1 space-y-2">
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-on-surface-variant dark:text-surface-variant hover:bg-parchment-surface dark:hover:bg-on-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span class="font-ui-label-bold text-ui-label-bold">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-primary dark:text-inverse-primary border-r-2 border-primary dark:border-inverse-primary font-bold hover:bg-parchment-surface dark:hover:bg-on-surface-variant transition-colors scale-[0.99] transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person_book</span>
+<span class="font-ui-label-bold text-ui-label-bold">Learner Profile</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-on-surface-variant dark:text-surface-variant hover:bg-parchment-surface dark:hover:bg-on-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">history_edu</span>
+<span class="font-ui-label-bold text-ui-label-bold">Archives</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- TopAppBar -->
+<header class="bg-parchment-base/80 backdrop-blur-md dark:bg-inverse-surface/80 fixed top-0 right-0 w-[calc(100%-16rem)] z-40 border-b border-subtle dark:border-outline-variant flex justify-between items-center h-16 px-gutter ml-64 transition-colors">
+<div class="flex-1"></div>
+<div class="flex items-center gap-4">
+<div class="relative w-64 mr-4">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-parchment-surface border border-subtle rounded-full py-1.5 pl-10 pr-4 font-ui-label-md text-ui-label-md focus:outline-none focus:border-primary transition-colors" placeholder="Search archives..." type="text"/>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 mt-16 p-section-padding w-[calc(100%-16rem)] max-w-container-max-width mx-auto">
+<div class="mb-stack-lg">
+<h2 class="font-display-lg text-display-lg text-primary mb-unit">Analytical Profile</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Reviewing your historical reasoning and probabilistic calibration.</p>
+</div>
+<!-- Global Metrics Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-md mb-stack-lg">
+<div class="col-span-1 md:col-span-2 bg-parchment-surface border border-subtle p-stack-md rounded-lg flex flex-col justify-center">
+<p class="font-ui-label-sm text-ui-label-sm text-on-surface-variant uppercase tracking-wider mb-2">Calibration Metric</p>
+<div class="flex items-end gap-4">
+<span class="font-display-lg text-display-lg text-primary">0.14</span>
+<span class="font-ui-label-bold text-ui-label-bold text-on-surface-variant mb-2">Avg. Brier Score</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 max-w-md">Your probabilistic forecasts are highly calibrated compared to historical outcomes. A score closer to 0 indicates perfect accuracy.</p>
+</div>
+<div class="col-span-1 bg-parchment-surface border border-subtle p-stack-md rounded-lg flex flex-col justify-center items-center text-center">
+<p class="font-ui-label-sm text-ui-label-sm text-on-surface-variant uppercase tracking-wider mb-2">Immersion Depth</p>
+<span class="font-display-lg text-display-lg text-primary">42</span>
+<span class="font-ui-label-bold text-ui-label-bold text-on-surface-variant mt-1">Scenarios Completed</span>
+</div>
+</div>
+<!-- Performance Factors & Detected Biases Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-stack-lg mb-stack-lg">
+<!-- Performance Factors -->
+<div class="lg:col-span-7 space-y-6">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-stack-sm border-b border-subtle pb-2">Cognitive Vectors</h3>
+<p class="font-ui-label-md text-ui-label-md text-on-surface-variant mb-4">Averaged performance across all analyzed scenarios.</p>
+</div>
+<div class="space-y-5">
+<!-- Factor 1 -->
+<div>
+<div class="flex justify-between mb-1">
+<span class="font-ui-label-bold text-ui-label-bold text-primary">Causal Reasoning</span>
+<span class="font-ui-label-md text-ui-label-md text-primary">88/100</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 88%"></div>
+</div>
+</div>
+<!-- Factor 2 -->
+<div>
+<div class="flex justify-between mb-1">
+<span class="font-ui-label-bold text-ui-label-bold text-primary">Probabilistic Calibration</span>
+<span class="font-ui-label-md text-ui-label-md text-primary">92/100</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-2">
+<div class="bg-cobalt-accent h-2 rounded-full" style="width: 92%"></div>
+</div>
+</div>
+<!-- Factor 3 -->
+<div>
+<div class="flex justify-between mb-1">
+<span class="font-ui-label-bold text-ui-label-bold text-primary">Bias Awareness</span>
+<span class="font-ui-label-md text-ui-label-md text-primary">65/100</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-2">
+<div class="bg-crimson-accent h-2 rounded-full" style="width: 65%"></div>
+</div>
+</div>
+<!-- Factor 4 -->
+<div>
+<div class="flex justify-between mb-1">
+<span class="font-ui-label-bold text-ui-label-bold text-primary">Historical Contextualization</span>
+<span class="font-ui-label-md text-ui-label-md text-primary">78/100</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-2">
+<div class="bg-secondary h-2 rounded-full" style="width: 78%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Detected Biases -->
+<div class="lg:col-span-5">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-stack-sm border-b border-subtle pb-2">Detected Analytical Biases</h3>
+<p class="font-ui-label-md text-ui-label-md text-on-surface-variant mb-4">Patterns identified by the archival AI across your rationale entries.</p>
+<div class="space-y-3">
+<div class="bg-error-container/20 border border-error-container p-3 rounded flex gap-3">
+<span class="material-symbols-outlined text-crimson-accent mt-0.5" style="font-variation-settings: 'FILL' 1;">warning</span>
+<div>
+<h4 class="font-ui-label-bold text-ui-label-bold text-primary">Hindsight Bias</h4>
+<p class="font-ui-label-md text-ui-label-md text-on-surface-variant mt-1">Frequently overestimating the predictability of past events after the outcome is known. Focus on pre-event uncertainty.</p>
+</div>
+</div>
+<div class="bg-secondary-container/20 border border-secondary-container p-3 rounded flex gap-3">
+<span class="material-symbols-outlined text-secondary mt-0.5" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<div>
+<h4 class="font-ui-label-bold text-ui-label-bold text-primary">Confirmation Bias</h4>
+<p class="font-ui-label-md text-ui-label-md text-on-surface-variant mt-1">Tendency to heavily weight forces that align with your initial hypothesis. Ensure rigorous testing of counter-narratives.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Previously Attempted Cases -->
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-stack-sm border-b border-subtle pb-2">Archival Record</h3>
+<div class="overflow-hidden border border-subtle rounded-lg bg-parchment-surface">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-subtle bg-surface-container-low">
+<th class="p-4 font-ui-label-sm text-ui-label-sm text-on-surface-variant uppercase tracking-wider w-1/3">Scenario Designation</th>
+<th class="p-4 font-ui-label-sm text-ui-label-sm text-on-surface-variant uppercase tracking-wider w-1/6">Date Engaged</th>
+<th class="p-4 font-ui-label-sm text-ui-label-sm text-on-surface-variant uppercase tracking-wider">AI Synthesis</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-subtle font-body-md text-body-md">
+<tr class="hover:bg-parchment-base transition-colors">
+<td class="p-4 align-top">
+<span class="font-ui-label-bold text-ui-label-bold block mb-1">The Cuban Missile Crisis</span>
+<span class="inline-block px-2 py-0.5 border border-primary text-primary font-ui-label-sm text-ui-label-sm rounded-full bg-parchment-base">Geopolitics</span>
+</td>
+<td class="p-4 align-top font-ui-label-md text-ui-label-md text-on-surface-variant">Oct 24, 2023</td>
+<td class="p-4 align-top">
+<div class="bg-blue-50/50 border-l-2 border-cobalt-accent pl-3 py-1">
+                                    Excellent calibration on Soviet intent, though slightly underestimated the role of domestic US political pressure on Kennedy's naval blockade decision.
+                                </div>
+</td>
+</tr>
+<tr class="hover:bg-parchment-base transition-colors">
+<td class="p-4 align-top">
+<span class="font-ui-label-bold text-ui-label-bold block mb-1">Fall of Constantinople</span>
+<span class="inline-block px-2 py-0.5 border border-primary text-primary font-ui-label-sm text-ui-label-sm rounded-full bg-parchment-base">Military Tactics</span>
+</td>
+<td class="p-4 align-top font-ui-label-md text-ui-label-md text-on-surface-variant">Oct 12, 2023</td>
+<td class="p-4 align-top">
+<div class="bg-blue-50/50 border-l-2 border-cobalt-accent pl-3 py-1">
+                                    Strong structural analysis of the siege, but demonstrated hindsight bias regarding the efficacy of the Orban bombard before it was actually deployed.
+                                </div>
+</td>
+</tr>
+<tr class="hover:bg-parchment-base transition-colors">
+<td class="p-4 align-top">
+<span class="font-ui-label-bold text-ui-label-bold block mb-1">The Meiji Restoration</span>
+<span class="inline-block px-2 py-0.5 border border-primary text-primary font-ui-label-sm text-ui-label-sm rounded-full bg-parchment-base">Economic Shift</span>
+</td>
+<td class="p-4 align-top font-ui-label-md text-ui-label-md text-on-surface-variant">Sep 30, 2023</td>
+<td class="p-4 align-top">
+<div class="bg-blue-50/50 border-l-2 border-cobalt-accent pl-3 py-1">
+                                    Highly precise causal linking between the arrival of Perry and internal clan restructuring. Perfect Brier score for this session.
+                                </div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-parchment-surface dark:bg-surface-container-highest border-t border-subtle dark:border-outline-variant w-[calc(100%-16rem)] mt-stack-lg ml-64 flex flex-col md:flex-row justify-between items-center py-stack-lg px-gutter">
+<div class="mb-4 md:mb-0">
+<span class="font-ui-label-bold text-ui-label-bold uppercase tracking-widest text-primary dark:text-inverse-primary block mb-2">Chronos Archive</span>
+<p class="font-ui-label-sm text-ui-label-sm text-secondary dark:text-secondary-fixed-dim">© 2024 Chronos Archive. Intellectual Clarity through Historical Gravity.</p>
+</div>
+<ul class="flex flex-wrap gap-6 font-ui-label-sm text-ui-label-sm">
+<li><a class="text-on-tertiary-container dark:text-on-tertiary-fixed-variant hover:text-primary dark:hover:text-inverse-primary transition-colors focus:outline-none focus:ring-1 focus:ring-primary rounded px-1" href="#">Methodology</a></li>
+<li><a class="text-on-tertiary-container dark:text-on-tertiary-fixed-variant hover:text-primary dark:hover:text-inverse-primary transition-colors focus:outline-none focus:ring-1 focus:ring-primary rounded px-1" href="#">Source Standards</a></li>
+<li><a class="text-on-tertiary-container dark:text-on-tertiary-fixed-variant hover:text-primary dark:hover:text-inverse-primary transition-colors focus:outline-none focus:ring-1 focus:ring-primary rounded px-1" href="#">Ethical Framework</a></li>
+<li><a class="text-on-tertiary-container dark:text-on-tertiary-fixed-variant hover:text-primary dark:hover:text-inverse-primary transition-colors focus:outline-none focus:ring-1 focus:ring-primary rounded px-1" href="#">Contact Curator</a></li>
+</ul>
+</footer>
+</body></html>

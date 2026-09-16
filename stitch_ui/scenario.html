@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chronos Archive - Scenario Solve</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#44474a",
+                        "surface-variant": "#e5e2e1",
+                        "surface-dim": "#ddd9d9",
+                        "on-tertiary-fixed": "#201b17",
+                        "on-surface": "#1c1b1b",
+                        "primary-fixed-dim": "#c6c6c9",
+                        "on-tertiary": "#ffffff",
+                        "border-subtle": "rgba(26, 28, 30, 0.08)",
+                        "secondary": "#715a3e",
+                        "on-primary-fixed-variant": "#454749",
+                        "tertiary-container": "#201b17",
+                        "outline": "#75777a",
+                        "tertiary-fixed": "#ebe0da",
+                        "surface-bright": "#fcf8f8",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#fdddb9",
+                        "on-tertiary-fixed-variant": "#4c4641",
+                        "parchment-surface": "#F1EFE9",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#8b837d",
+                        "gold-accent": "#D4AF37",
+                        "secondary-fixed-dim": "#e0c29f",
+                        "inverse-surface": "#313030",
+                        "inverse-on-surface": "#f4f0ef",
+                        "surface-container": "#f1eded",
+                        "tertiary-fixed-dim": "#cfc5be",
+                        "surface": "#fcf8f8",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#ebe7e7",
+                        "on-background": "#1c1b1b",
+                        "slate-deep": "#2C2E31",
+                        "primary": "#000101",
+                        "crimson-accent": "#9E2A2B",
+                        "on-secondary-container": "#786044",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#e2e2e5",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#1a1c1e",
+                        "on-secondary-fixed-variant": "#584329",
+                        "outline-variant": "#c5c6ca",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-container": "#fdddb9",
+                        "primary-container": "#1a1c1e",
+                        "parchment-base": "#F9F8F4",
+                        "background": "#fcf8f8",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#c6c6c9",
+                        "on-primary-container": "#838486",
+                        "on-secondary-fixed": "#281803",
+                        "tertiary": "#010100",
+                        "surface-tint": "#5d5e61",
+                        "cobalt-accent": "#2B50AA"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "stack-lg": "32px",
+                        "stack-sm": "8px",
+                        "section-padding": "64px",
+                        "container-max-width": "1100px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Source Serif 4"],
+                        "display-lg": ["Source Serif 4"],
+                        "ui-label-md": ["Inter"],
+                        "headline-md": ["Source Serif 4"],
+                        "body-lg": ["Source Serif 4"],
+                        "body-md": ["Source Serif 4"],
+                        "ui-label-sm": ["Inter"],
+                        "ui-label-bold": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "ui-label-md": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "body-lg": ["20px", { "lineHeight": "32px", "fontWeight": "400" }],
+                        "body-md": ["17px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "ui-label-sm": ["11px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "ui-label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.parchment-base');
+            color: theme('colors.primary');
+        }
+        
+        /* Custom Slider Styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 4px;
+            background: theme('colors.primary');
+            cursor: pointer;
+            margin-top: -10px;
+            border-radius: theme('borderRadius.DEFAULT');
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: theme('colors.slate-deep');
+            border-radius: theme('borderRadius.DEFAULT');
+        }
+        
+        /* Fill effect for slider */
+        .slider-fill {
+            position: absolute;
+            height: 4px;
+            background: theme('colors.cobalt-accent');
+            border-radius: theme('borderRadius.DEFAULT') 0 0 theme('borderRadius.DEFAULT');
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen font-body-md text-body-md flex">
+<!-- SideNavBar -->
+<nav class="bg-parchment-base dark:bg-inverse-surface h-screen w-64 fixed left-0 top-0 border-r border-subtle dark:border-outline-variant flex flex-col h-full py-stack-lg px-gutter z-50 hidden md:flex">
+<div class="mb-stack-lg">
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight">Chronos Archive</h1>
+<p class="font-ui-label-md text-ui-label-md text-on-surface-variant mt-unit">History by Immersion</p>
+</div>
+<button class="bg-primary text-on-primary font-ui-label-bold text-ui-label-bold py-3 px-4 rounded hover:bg-slate-deep transition-colors mb-stack-lg flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+            New Analysis
+        </button>
+<ul class="flex flex-col gap-2 flex-grow">
+<!-- Dashboard (Active logic: assuming we are in a scenario, Dashboard might be active path, or we create a specific active state. Let's make Dashboard active for context) -->
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-primary dark:text-inverse-primary border-r-2 border-primary dark:border-inverse-primary font-bold hover:bg-parchment-surface dark:hover:bg-on-surface-variant transition-colors group" href="#">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-ui-label-bold text-ui-label-bold">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-on-surface-variant dark:text-surface-variant hover:bg-parchment-surface dark:hover:bg-on-surface-variant transition-colors group" href="#">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">person_book</span>
+<span class="font-ui-label-bold text-ui-label-bold">Learner Profile</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-on-surface-variant dark:text-surface-variant hover:bg-parchment-surface dark:hover:bg-on-surface-variant transition-colors group" href="#">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">history_edu</span>
+<span class="font-ui-label-bold text-ui-label-bold">Archives</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto flex items-center gap-3 pt-stack-md border-t border-subtle">
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden">
+<img alt="Curator Profile" class="w-full h-full object-cover" data-alt="A subtle, minimalist digital portrait of an archivist. The image is rendered in soft, warm light against a pale parchment background. The subject is partially obscured in shadow, conveying a sense of historical mystery and intellectual depth. The overall aesthetic is clean, professional, and consistent with a high-end digital reading platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRbIIMbI8_vuymF3FWS9f_TdAtxxVEmctBIjYWDmo170SpUlqYgzrg3CEiZMf6P4hydjnesN2-IOLsSbgNDUfV0jcWLdeuUZHt9QriMVCp-hV4BUO-PDCW9z6RPbb7d6xU7QKWYIVtnBZSz0DMb6XOwkX8b7OfqjwKIJSXJfGvug2-pBthkocmimRCVy42vGmLLuCHNoQUsjR2OhYDZA2xByuxKebrxtauS8i9umQyg6NPnIyGZPdqW0zEqyeDTKeU553vHbN-Tao"/>
+</div>
+<span class="font-ui-label-md text-ui-label-md text-on-surface-variant">Curator Mode</span>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 ml-0 md:ml-64 flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-parchment-base/80 backdrop-blur-md dark:bg-inverse-surface/80 fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] z-40 border-b border-subtle dark:border-outline-variant flex justify-between items-center h-16 px-gutter">
+<div class="font-headline-sm text-headline-sm font-bold text-primary dark:text-inverse-primary md:hidden">
+                History by Immersion
+            </div>
+<!-- Empty div for spacing on desktop when search is on right -->
+<div class="hidden md:block"></div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</header>
+<!-- Scenario Content -->
+<main class="flex-1 mt-16 pt-stack-lg pb-section-padding px-gutter w-full max-w-[720px] mx-auto flex flex-col gap-stack-lg">
+<!-- Mode Selection -->
+<section class="flex flex-col gap-stack-sm">
+<span class="font-ui-label-sm text-ui-label-sm text-on-surface-variant uppercase tracking-widest">Analysis Lens</span>
+<div class="flex bg-parchment-surface p-1 rounded-DEFAULT border border-subtle">
+<button class="flex-1 py-2 px-4 text-center rounded-sm font-ui-label-md text-ui-label-md transition-colors bg-primary text-on-primary shadow-sm" onclick="setActiveMode(this)">
+                        The Decision Maker
+                    </button>
+<button class="flex-1 py-2 px-4 text-center rounded-sm font-ui-label-md text-ui-label-md text-on-surface-variant hover:bg-surface-variant/50 transition-colors" onclick="setActiveMode(this)">
+                        The Analyst
+                    </button>
+<button class="flex-1 py-2 px-4 text-center rounded-sm font-ui-label-md text-ui-label-md text-on-surface-variant hover:bg-surface-variant/50 transition-colors" onclick="setActiveMode(this)">
+                        The Historian
+                    </button>
+</div>
+</section>
+<!-- Divider -->
+<hr class="border-t border-subtle w-full"/>
+<!-- Scenario Setup -->
+<section class="flex flex-col gap-stack-md">
+<header class="flex flex-col gap-unit">
+<span class="font-ui-label-sm text-ui-label-sm text-crimson-accent uppercase tracking-widest font-semibold">October 1962 • Washington D.C.</span>
+<h2 class="font-display-lg text-display-lg text-primary">The Cuban Missile Crisis</h2>
+</header>
+<div class="prose max-w-none font-body-lg text-body-lg text-on-surface leading-relaxed">
+<p>Reconnaissance photographs have confirmed the presence of Soviet medium-range ballistic missiles in Cuba. These installations significantly alter the strategic balance, placing Washington D.C. and major US cities within a 5-minute strike window.</p>
+<p class="mt-4">The Joint Chiefs of Staff unanimously recommend immediate, overwhelming air strikes to neutralize the sites before they become fully operational. Conversely, diplomatic back-channels warn that an unprovoked strike could force Premier Khrushchev into a retaliatory posture in Berlin or Turkey.</p>
+</div>
+<div class="bg-parchment-surface border-l-2 border-secondary p-stack-md mt-stack-sm">
+<p class="font-ui-label-bold text-ui-label-bold text-primary mb-2">The Imperative</p>
+<p class="font-body-md text-body-md text-on-surface-variant">As EXCOMM convenes, you must advise the President. The decision rests on interpreting Soviet intent versus capability.</p>
+</div>
+</section>
+<!-- Interaction Area -->
+<section class="flex flex-col gap-stack-lg bg-surface p-stack-lg border border-subtle rounded-lg mt-stack-md">
+<!-- Force Selection -->
+<div class="flex flex-col gap-stack-sm">
+<label class="font-ui-label-bold text-ui-label-bold text-primary">Identify Primary Historical Forces at Play</label>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-full font-ui-label-md text-ui-label-md bg-parchment-surface text-primary border border-subtle hover:bg-surface-variant transition-colors" onclick="toggleChip(this)">Geopolitics</button>
+<button class="px-4 py-2 rounded-full font-ui-label-md text-ui-label-md bg-primary text-on-primary border border-primary transition-colors" onclick="toggleChip(this)">Nuclear Deterrence</button>
+<button class="px-4 py-2 rounded-full font-ui-label-md text-ui-label-md bg-parchment-surface text-primary border border-subtle hover:bg-surface-variant transition-colors" onclick="toggleChip(this)">Domestic Politics</button>
+<button class="px-4 py-2 rounded-full font-ui-label-md text-ui-label-md bg-primary text-on-primary border border-primary transition-colors" onclick="toggleChip(this)">Miscalculation Risk</button>
+<button class="px-4 py-2 rounded-full font-ui-label-md text-ui-label-md bg-parchment-surface text-primary border border-subtle hover:bg-surface-variant transition-colors" onclick="toggleChip(this)">Economic Sanctions</button>
+</div>
+</div>
+<!-- Probability Slider -->
+<div class="flex flex-col gap-stack-md pt-stack-sm">
+<div class="flex justify-between items-end">
+<label class="font-ui-label-bold text-ui-label-bold text-primary">Probability of Escalation to Armed Conflict</label>
+<span class="font-headline-sm text-headline-sm text-cobalt-accent" id="prob-value">65%</span>
+</div>
+<div class="relative pt-4 pb-2">
+<div class="slider-fill" id="slider-fill" style="width: 65%;"></div>
+<input class="w-full relative z-10" id="prob-slider" max="100" min="0" oninput="updateSlider(this.value)" type="range" value="65"/>
+<div class="flex justify-between mt-2 font-ui-label-sm text-ui-label-sm text-on-surface-variant">
+<span>0% (Diplomatic Resolution)</span>
+<span>100% (Strategic Exchange)</span>
+</div>
+</div>
+</div>
+<!-- Rationale Input -->
+<div class="flex flex-col gap-stack-sm pt-stack-sm">
+<label class="font-ui-label-bold text-ui-label-bold text-primary" for="rationale">Strategic Rationale</label>
+<p class="font-ui-label-sm text-ui-label-sm text-on-surface-variant">Justify your assessment based on the historical context and selected forces.</p>
+<textarea class="w-full bg-parchment-surface border-0 border-l-2 border-secondary focus:ring-0 focus:outline-none p-4 font-body-md text-body-md text-on-surface resize-y rounded-r-DEFAULT" id="rationale" placeholder="Begin drafting your analysis..." rows="5"></textarea>
+</div>
+<!-- Action Button -->
+<div class="mt-stack-sm flex justify-end">
+<button class="bg-primary text-on-primary font-ui-label-bold text-ui-label-bold py-3 px-8 rounded hover:bg-slate-deep transition-colors shadow-[0_12px_24px_rgba(0,0,0,0.04)] hover:shadow-none transform hover:translate-y-px">
+                        Submit &amp; See Answer Key
+                    </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-parchment-surface dark:bg-surface-container-highest w-full mt-auto border-t border-subtle dark:border-outline-variant flex flex-col md:flex-row justify-between items-center py-stack-lg px-gutter">
+<div class="font-ui-label-bold text-ui-label-bold uppercase tracking-widest text-primary dark:text-inverse-primary mb-4 md:mb-0">
+                Chronos Archive
+            </div>
+<div class="flex flex-wrap gap-4 justify-center md:justify-end mb-4 md:mb-0">
+<a class="font-ui-label-sm text-ui-label-sm text-on-tertiary-container dark:text-on-tertiary-fixed-variant hover:text-primary dark:hover:text-inverse-primary transition-colors focus:outline-none focus:ring-1 focus:ring-primary rounded px-1" href="#">Methodology</a>
+<a class="font-ui-label-sm text-ui-label-sm text-on-tertiary-container dark:text-on-tertiary-fixed-variant hover:text-primary dark:hover:text-inverse-primary transition-colors focus:outline-none focus:ring-1 focus:ring-primary rounded px-1" href="#">Source Standards</a>
+<a class="font-ui-label-sm text-ui-label-sm text-on-tertiary-container dark:text-on-tertiary-fixed-variant hover:text-primary dark:hover:text-inverse-primary transition-colors focus:outline-none focus:ring-1 focus:ring-primary rounded px-1" href="#">Ethical Framework</a>
+<a class="font-ui-label-sm text-ui-label-sm text-on-tertiary-container dark:text-on-tertiary-fixed-variant hover:text-primary dark:hover:text-inverse-primary transition-colors focus:outline-none focus:ring-1 focus:ring-primary rounded px-1" href="#">Contact Curator</a>
+</div>
+<div class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim text-center md:text-right text-sm">
+                © 2024 Chronos Archive. Intellectual Clarity through Historical Gravity.
+            </div>
+</footer>
+</div>
+<script>
+        // Mode Toggle Logic
+        function setActiveMode(clickedBtn) {
+            const buttons = clickedBtn.parentElement.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.className = "flex-1 py-2 px-4 text-center rounded-sm font-ui-label-md text-ui-label-md text-on-surface-variant hover:bg-surface-variant/50 transition-colors";
+            });
+            clickedBtn.className = "flex-1 py-2 px-4 text-center rounded-sm font-ui-label-md text-ui-label-md transition-colors bg-primary text-on-primary shadow-sm";
+        }
+
+        // Chip Toggle Logic
+        function toggleChip(chip) {
+            const isSelected = chip.classList.contains('bg-primary');
+            if (isSelected) {
+                chip.className = "px-4 py-2 rounded-full font-ui-label-md text-ui-label-md bg-parchment-surface text-primary border border-subtle hover:bg-surface-variant transition-colors";
+            } else {
+                chip.className = "px-4 py-2 rounded-full font-ui-label-md text-ui-label-md bg-primary text-on-primary border border-primary transition-colors";
+            }
+        }
+
+        // Slider Logic
+        function updateSlider(val) {
+            document.getElementById('prob-value').innerText = val + '%';
+            document.getElementById('slider-fill').style.width = val + '%';
+            
+            // Adjust color based on risk level
+            const valueEl = document.getElementById('prob-value');
+            if (val > 75) {
+                valueEl.className = "font-headline-sm text-headline-sm text-crimson-accent";
+            } else if (val > 40) {
+                valueEl.className = "font-headline-sm text-headline-sm text-gold-accent";
+            } else {
+                valueEl.className = "font-headline-sm text-headline-sm text-cobalt-accent";
+            }
+        }
+    </script>
+</body></html>

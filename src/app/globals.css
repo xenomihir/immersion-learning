@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+@theme {
+  --color-on-surface-variant: #44474a;
+  --color-surface-variant: #e5e2e1;
+  --color-surface-dim: #ddd9d9;
+  --color-on-tertiary-fixed: #201b17;
+  --color-on-surface: #1c1b1b;
+  --color-primary-fixed-dim: #c6c6c9;
+  --color-on-tertiary: #ffffff;
+  --color-border-subtle: rgba(26, 28, 30, 0.08);
+  --color-secondary: #715a3e;
+  --color-on-primary-fixed-variant: #454749;
+  --color-tertiary-container: #201b17;
+  --color-outline: #75777a;
+  --color-tertiary-fixed: #ebe0da;
+  --color-surface-bright: #fcf8f8;
+  --color-error-container: #ffdad6;
+  --color-secondary-fixed: #fdddb9;
+  --color-on-tertiary-fixed-variant: #4c4641;
+  --color-parchment-surface: #F1EFE9;
+  --color-on-error: #ffffff;
+  --color-on-tertiary-container: #8b837d;
+  --color-gold-accent: #D4AF37;
+  --color-secondary-fixed-dim: #e0c29f;
+  --color-inverse-surface: #313030;
+  --color-inverse-on-surface: #f4f0ef;
+  --color-surface-container: #f1eded;
+  --color-tertiary-fixed-dim: #cfc5be;
+  --color-surface: #fcf8f8;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-high: #ebe7e7;
+  --color-on-background: #1c1b1b;
+  --color-slate-deep: #2C2E31;
+  --color-primary: #000101;
+  --color-crimson-accent: #9E2A2B;
+  --color-on-secondary-container: #786044;
+  --color-on-error-container: #93000a;
+  --color-surface-container-highest: #e5e2e1;
+  --color-on-secondary: #ffffff;
+  --color-primary-fixed: #e2e2e5;
+  --color-on-primary: #ffffff;
+  --color-on-primary-fixed: #1a1c1e;
+  --color-on-secondary-fixed-variant: #584329;
+  --color-outline-variant: #c5c6ca;
+  --color-surface-container-low: #f6f3f2;
+  --color-secondary-container: #fdddb9;
+  --color-primary-container: #1a1c1e;
+  --color-parchment-base: #F9F8F4;
+  --color-background: #fcf8f8;
+  --color-error: #ba1a1a;
+  --color-inverse-primary: #c6c6c9;
+  --color-on-primary-container: #838486;
+  --color-on-secondary-fixed: #281803;
+  --color-tertiary: #010100;
+  --color-surface-tint: #5d5e61;
+  --color-cobalt-accent: #2B50AA;
+
+  --spacing-stack-md: 16px;
+  --spacing-unit: 4px;
+  --spacing-gutter: 24px;
+  --spacing-stack-lg: 32px;
+  --spacing-stack-sm: 8px;
+  --spacing-section-padding: 64px;
+  --spacing-container-max-width: 1100px;
+
+  /* ALL fonts are Inter (sans-serif) — no serif anywhere */
+  --font-headline-sm: "Inter", sans-serif;
+  --font-display-lg: "Inter", sans-serif;
+  --font-ui-label-md: "Inter", sans-serif;
+  --font-headline-md: "Inter", sans-serif;
+  --font-body-lg: "Inter", sans-serif;
+  --font-body-md: "Inter", sans-serif;
+  --font-ui-label-sm: "Inter", sans-serif;
+  --font-ui-label-bold: "Inter", sans-serif;
+}
+
+@utility text-headline-sm { font-size: 24px; line-height: 32px; font-weight: 600; }
+@utility text-display-lg { font-size: 48px; line-height: 56px; letter-spacing: -0.02em; font-weight: 700; }
+@utility text-ui-label-md { font-size: 13px; line-height: 18px; font-weight: 500; }
+@utility text-headline-md { font-size: 32px; line-height: 40px; font-weight: 600; }
+@utility text-body-lg { font-size: 20px; line-height: 32px; font-weight: 400; }
+@utility text-body-md { font-size: 17px; line-height: 28px; font-weight: 400; }
+@utility text-ui-label-sm { font-size: 11px; line-height: 16px; font-weight: 600; }
+@utility text-ui-label-bold { font-size: 14px; line-height: 20px; letter-spacing: 0.05em; font-weight: 600; }
+
+body {
+  background-color: var(--color-parchment-base);
+  color: var(--color-primary);
+  font-family: "Inter", sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Custom Slider Styling */
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 24px;
+  width: 4px;
+  background: var(--color-primary);
+  cursor: pointer;
+  margin-top: -10px;
+  border-radius: 0.125rem;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: var(--color-slate-deep);
+  border-radius: 0.125rem;
+}
+
+.slider-fill {
+  position: absolute;
+  height: 4px;
+  background: var(--color-cobalt-accent);
+  border-radius: 0.125rem 0 0 0.125rem;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  pointer-events: none;
+}
+
+/* Smooth card hover lift animation */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.06);
+}
+
+/* Subtle gradient for section headers */
+.gradient-header {
+  background: linear-gradient(135deg, var(--color-parchment-base) 0%, var(--color-parchment-surface) 100%);
+}
+
+/* Subtle border glow on active cards */
+.active-glow {
+  box-shadow: 0 0 0 2px var(--color-cobalt-accent), 0 8px 24px rgba(43, 80, 170, 0.08);
+}
+
+/* Difficulty badge colors */
+.difficulty-1 { background: linear-gradient(135deg, #4CAF50, #66BB6A); color: white; }
+.difficulty-2 { background: linear-gradient(135deg, #2196F3, #42A5F5); color: white; }
+.difficulty-3 { background: linear-gradient(135deg, #FF9800, #FFA726); color: white; }
+.difficulty-4 { background: linear-gradient(135deg, #F44336, #EF5350); color: white; }
+.difficulty-5 { background: linear-gradient(135deg, #7B1FA2, #9C27B0); color: white; }
+
+/* Mode pill styles */
+.mode-focused {
+  background: linear-gradient(135deg, var(--color-cobalt-accent), #3B63BD);
+  color: white;
+}
+.mode-immersive {
+  background: linear-gradient(135deg, var(--color-crimson-accent), #B53535);
+  color: white;
+}
